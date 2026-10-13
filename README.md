@@ -72,4 +72,4 @@ The last command is the regression check: a headache visit still books. `--demo`
 
 `clinic_agent/clinic.py` is the chart and the tools. `signals.py` reads the utterance. `agent.py` is the fixed planner, which never special-cases emergencies. `llm.py` is the live planner used only when you type. `policy.py` can replace a proposal before a tool runs. `evalkit.py` is the judge, the compiler, and the accept/reject gate. `web.py` is the desk.
 
-Design choices and limits are in [DESIGN.md](DESIGN.md).
+The one-page design note is [DESIGN.md](DESIGN.md): choices, the loop, 10/13 to 13/13, and what would change in a real clinic.
