@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Riverside scheduling desk</title>
+  <link rel="stylesheet" href="/app.css">
+</head>
+<body>
+  <header class="top">
+    <div class="brand">
+      <span class="mark" aria-hidden="true">R</span>
+      <div>
+        <p class="name">Riverside</p>
+        <p class="sub" id="clock">Scheduling desk</p>
+        <p class="sub" id="live">Checking the model…</p>
+      </div>
+    </div>
+    <nav class="views" aria-label="Desk sections">
+      <button type="button" class="view on" data-view="desk">Desk</button>
+      <button type="button" class="view" data-view="eval">Evaluation</button>
+    </nav>
+    <div class="switch" role="group" aria-label="Policy">
+      <button type="button" class="policy on" data-policy="v0">Before the rule</button>
+      <button type="button" class="policy" data-policy="v1" id="policyV1">After the rule</button>
+    </div>
+  </header>
+
+  <div id="banner" class="banner" hidden></div>
+
+  <div id="desk" class="desk">
+    <section class="panel chart" aria-labelledby="chart-title">
+      <header class="panel-h">
+        <h1 id="chart-title">Staff chart</h1>
+        <p>Visible here. The agent may not read another patient's row aloud.</p>
+      </header>
+      <div id="chartBody" class="scroll"></div>
+    </section>
+
+    <section class="panel talk" aria-labelledby="talk-title">
+      <header class="panel-h talk-h">
+        <div>
+          <h1 id="talk-title">Patient line</h1>
+          <p id="talkHint">A fictional visit. Not medical care.</p>
+        </div>
+        <button type="button" class="text-btn" id="newVisit">New visit</button>
+      </header>
+      <div id="grade" class="grade" hidden></div>
+      <div id="log" class="log" role="log" aria-live="polite"></div>
+      <form id="composer" class="composer">
+        <label class="sr" for="message">Message to the scheduler</label>
+        <textarea id="message" rows="2" placeholder="Book, cancel, reschedule, or describe what is going on."></textarea>
+        <button type="submit" id="send">Send</button>
+      </form>
+    </section>
+
+    <aside class="panel trace" aria-labelledby="trace-title">
+      <header class="panel-h">
+        <h1 id="trace-title">Policy trace</h1>
+        <p id="ruleLine">Rules in force</p>
+      </header>
+      <div id="signals" class="signals"></div>
+      <div id="events" class="scroll events"></div>
+      <div class="scripts">
+        <h2>Scripted visits</h2>
+        <p>Fixed test, so the score stays put. What you type uses the live model.</p>
+        <div id="scripts" class="script-list"></div>
+      </div>
+    </aside>
+  </div>
+
+  <section id="evaluation" class="evaluation" hidden>
+    <div class="eval-lead">
+      <div>
+        <h1>Improvement loop</h1>
+        <p>Score the same 13 visits, compile a rule from the failures, and keep it only when nothing that already worked gets worse.</p>
+      </div>
+      <button type="button" class="run" id="runEval">Run the loop</button>
+    </div>
+    <div id="evalBody" class="eval-body">
+      <p class="empty-copy">Nothing has been scored in this browser session yet.</p>
+    </div>
+  </section>
+
+  <script src="/app.js"></script>
+</body>
+</html>

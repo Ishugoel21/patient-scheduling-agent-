@@ -1,0 +1,3 @@
+# The graded path uses the Python standard library only (3.11+).
+# eval and chat --demo need no model API key.
+# Typed chat is optional and reads OPENAI_API_KEY or OPENAI_BASE_URL from .env.
